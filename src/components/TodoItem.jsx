@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 
 export default function TodoItem({ todo, onToggle, onDelete, onUpdate }) {
@@ -77,7 +78,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onUpdate }) {
       <button
         type="button"
         className="delete"
-        onClick={onDelete(todo.id)}
+        onClick={() => onDelete(todo.id)}
         aria-label={`Delete ${todo.text}`}
       >
         Delete

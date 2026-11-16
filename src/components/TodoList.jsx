@@ -1,3 +1,4 @@
+import React from "react";
 import TodoItem from "./TodoItem";
 
 export default function TodoList({
@@ -25,6 +26,7 @@ export default function TodoList({
     <ul className="list">
       {todos.map((todo) => (
         <TodoItem
+        key={todo}
           todo={todo}
           onToggle={onToggle}
           onDelete={onDelete}

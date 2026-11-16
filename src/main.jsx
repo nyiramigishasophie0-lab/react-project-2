@@ -12,6 +12,9 @@ class ErrorScreen extends React.Component {
   static getDerivedStateFromError(error) {
     return { error };
   }
+  componentDidCatch(error, info) {
+  console.error("Application error:", error, info);
+}
 
   render() {
     if (this.state.error) {

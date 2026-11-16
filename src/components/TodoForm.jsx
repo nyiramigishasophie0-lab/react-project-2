@@ -1,12 +1,17 @@
+import React from "react";
 import { useState } from "react";
 
 export default function TodoForm({ onAdd }) {
   const [text, setText] = useState("");
 
-  function handleSubmit(event) {
-    onAdd(text);
-    setText("");
-  }
+ function handleSubmit(event) {
+  event.preventDefault();
+
+  if (!text.trim()) return;
+
+  onAdd(text);
+  setText("");
+}
 
   return (
     <form className="composer" onSubmit={handleSubmit}>
@@ -16,7 +21,7 @@ export default function TodoForm({ onAdd }) {
           type="text"
           name="task"
           value={text}
-          onChange={(event) => setText(event.target)}
+          onChange={(event) => setText(event.target.value)}
           placeholder="Add a task"
           autoComplete="off"
         />

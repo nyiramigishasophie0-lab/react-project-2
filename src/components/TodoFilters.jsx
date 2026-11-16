@@ -1,7 +1,8 @@
+import React from "react";
 const OPTIONS = [
   ["all", "All", "all"],
-  ["active", "Active", "completed"],
-  ["completed", "Completed", "active"],
+  ["active", "Active", "active"],
+  ["completed", "Completed", "completed"],
 ];
 
 export default function TodoFilters({ filter, counts, onFilter }) {
@@ -11,8 +12,8 @@ export default function TodoFilters({ filter, counts, onFilter }) {
         <button
           key={value}
           type="button"
-          className={value === "all" ? "chip is-selected" : "chip"}
-          aria-pressed={value === "all"}
+          className={value === filter ? "chip is-selected" : "chip"}
+          aria-pressed={value === filter}
           onClick={() => onFilter(value)}
         >
           <span>{label}</span>

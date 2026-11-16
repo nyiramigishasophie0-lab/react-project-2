@@ -10,7 +10,7 @@ export function useTodos() {
   }, [todos]);
 
   function addTodo(text) {
-    if (!text) return;
+    if (!text.trim) return;
 
     setTodos([
       ...todos,
